@@ -45,9 +45,6 @@ struct Profile: View {
                 }
                 HStack{
                     Spacer()
-                    NavigationLink(destination: FavoriteMovie()){
-                        Text("Edit").font(.system(size: 20)).foregroundColor(.black).frame(width: 150, height: 10).padding(10)
-                    }
                     Spacer()
                 }
                 Text("Reminder List: ").fontWeight(.bold).font(.system(size: 25)).padding()

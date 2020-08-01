@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AboutScreen: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        WebView(url: "https://www.themoviedb.org/about/our-history")
     }
 }
 

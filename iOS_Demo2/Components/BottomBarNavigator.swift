@@ -10,13 +10,14 @@ import SwiftUI
 
 struct BottomBarNavigator: View {
     @State var isSelectedBottom = 0
-    @Binding var tittleHome: String
-    @Binding var isView: Int
+    @Binding var titleHome: String
+    @Binding var isShowView: Int
     var body: some View {
         VStack{
             Spacer()
-            BottomBar(tittleHome: $tittleHome, isSelectedBottom: $isSelectedBottom, isView: $isView).background(CurvedShape()).padding()
-            }.edgesIgnoringSafeArea(.bottom)
+            BottomBar(titleHome: $titleHome, isSelectedBottom: $isSelectedBottom, isShowView: $isShowView).background(CurvedShape()).padding()
+            Spacer()
+        }
     }
 }
 
@@ -37,49 +38,70 @@ struct CurvedShape :View{
     }
 }
 struct BottomBar: View{
-    @Binding var tittleHome: String
+    @Binding var titleHome: String
     @Binding var isSelectedBottom : Int
-    @Binding var isView: Int
+    @Binding var isShowView: Int
+    @Environment(\.presentationMode) var presentationMode
     var body: some View{
-        HStack{
-            Spacer().frame(width: 20)
-            Button(action: {
-                self.isSelectedBottom = 0
-                self.tittleHome = "Popular"
-                self.isView = 0
-                print(self.tittleHome)
-            }) {
-                Image(systemName: isSelectedBottom == 0 ? "house.fill" : "house").resizable().frame(width: 30, height: 30)
-            }.foregroundColor(.black)
-            Spacer()
-            Button(action: {
-                self.isSelectedBottom = 1
-                self.tittleHome = "Favorites"
-                self.isView = 1
-                print(self.tittleHome)
-            }) {
-                Image(systemName: isSelectedBottom == 1 ? "suit.heart.fill": "heart").resizable().frame(width: 30, height: 30)
-            }.foregroundColor(.black)
-            Spacer()
-            Button(action: {
-                self.isSelectedBottom = 2
-                self.tittleHome = "Setting"
-                self.isView = 2
-                print(self.tittleHome)
-            }) {
-                Image(systemName: isSelectedBottom == 2 ? "paperplane.fill" : "paperplane").resizable().frame(width: 30, height: 30)
-            }.foregroundColor(.black)
-            Spacer()
-            Button(action: {
-                self.isSelectedBottom = 3
-                self.tittleHome = "About"
-                self.isView = 3
-                print(self.tittleHome)
-            }) {
-                Image(systemName: isSelectedBottom == 3 ? "ellipsis.circle.fill" : "ellipsis.circle").resizable().frame(width: 30, height: 30)
-            }.foregroundColor(.black)
-            Spacer().frame(width: 20)
+        VStack{
+            Spacer().frame(width: 10)
+            HStack{
+                
+                VStack{
+                    Button(action: {
+                        self.isSelectedBottom = 0
+                        self.titleHome = "Popular"
+                        self.isShowView = 0
+                        print(self.titleHome)
+                    }) {
+                        Image(systemName: isSelectedBottom == 0 ? "house.fill" : "house").resizable().frame(width: 30, height: 30)
+                    }
+                    Text("Home")
+                }.foregroundColor(.black).padding(0)
+                Spacer()
+                VStack{
+                    Button(action: {
+                        self.isSelectedBottom = 1
+                        self.titleHome = "Favorites"
+                        self.isShowView = 1
+                        self.presentationMode.wrappedValue.dismiss()
+                        print(self.titleHome)
+                    }) {
+                        Image(systemName: isSelectedBottom == 1 ? "suit.heart.fill": "heart").resizable().frame(width: 30, height: 30)
+                    }
+                    Text("Favorites")
+                }
+                .foregroundColor(.black)
+                Spacer()
+                VStack{
+                    Button(action: {
+                        self.isSelectedBottom = 2
+                        self.titleHome = "Setting"
+                        self.isShowView = 2
+                        print(self.titleHome)
+                    }) {
+                        Image(systemName: isSelectedBottom == 2 ? "paperplane.fill" : "paperplane").resizable().frame(width: 30, height: 30)
+                    }
+                    Text("Setting")
+                }
+                .foregroundColor(.black)
+                Spacer()
+                VStack{
+                    Button(action: {
+                        self.isSelectedBottom = 3
+                        self.titleHome = "About"
+                        self.isShowView = 3
+                        print(self.titleHome)
+                    }) {
+                        Image(systemName: isSelectedBottom == 3 ? "ellipsis.circle.fill" : "ellipsis.circle").resizable().frame(width: 30, height: 30)
+                    }
+                    Text("About")
+                }
+                .foregroundColor(.black)
+                
+            }
         }
+        
     }
 }
 
