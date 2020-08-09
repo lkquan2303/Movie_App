@@ -1,21 +1,21 @@
 //
-//  LoadView_State.swift
+//  CustomYearPicker_Screen.swift
 //  iOS_Demo2
 //
-//  Created by Uri on 8/5/20.
+//  Created by Uri on 8/6/20.
 //  Copyright © 2020 Uri. All rights reserved.
 //
 
 import SwiftUI
 
-struct LoadView_State: View {
+struct CustomYearPicker_Screen: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct LoadView_State_Previews: PreviewProvider {
+struct CustomYearPicker_Screen_Previews: PreviewProvider {
     static var previews: some View {
-        LoadView_State()
+        CustomYearPicker_Screen()
     }
 }
